@@ -1,0 +1,82 @@
+seed: 20260924
+horizon_seconds: 7200
+drain_limit_seconds: 7200
+time_step_seconds: 1
+
+arrival:
+  mode: poisson
+  rate_per_hour: 420
+  profile: []
+  burst_size: 35
+  burst_interval_seconds: 900
+  batch_size: 8
+  batch_interval_seconds: 70
+
+service:
+  servers: 3
+  mean_seconds: 20
+  cv: 0.55
+  distribution: gamma
+  secondary_probability: 0.04
+  secondary_mean_seconds: 50
+  long_inspection_probability: 0.005
+  long_inspection_mean_seconds: 180
+  lane_schedule: []
+
+passenger:
+  walking_speed_mps: 1.3
+  walking_speed_cv: 0.16
+  luggage_prevalence: 0.65
+  luggage_speed_multiplier: 0.90
+  reduced_mobility_prevalence: 0.04
+  reduced_mobility_speed_multiplier: 0.65
+  release_compliance: 0.97
+  noncompliance_delay_seconds: 12
+  startup_delay_seconds: 0.39
+  reaction_delay_seconds: 0.48
+  slowdown_seconds: 0.58
+  body_footprint_m2: 0.20
+  luggage_footprint_m2_per_bag: 0.12
+  static_clearance_m2: 0.35
+  moving_clearance_m2: 0.55
+  multiple_bag_probability: 0.15
+  group_prevalence: 0.20
+
+geometry:
+  waiting_area_m2: 90
+  screening_area_m2: 45
+  serpentine_distance_m: 55
+  stationary_distance_m: 22
+  virtual_distance_m: 18
+  serpentine_turns: 10
+  stationary_turns: 2
+  virtual_turns: 1
+  spacing_m: 0.75
+  accessible_route_width_m: 1.20
+  turning_diameter_m: 1.60
+  max_waiting_density_per_m2: 1.40
+  downstream_capacity: 36
+  layout: policy_default
+  width_m: 12
+  length_m: 10
+  rows: 6
+  row_spacing_m: 1.20
+  passenger_spacing_m: 0.75
+  gate_width_m: 1.20
+  downstream_staging_area_m2: 45
+  corridor_width_m: 1.20
+  screening_positions: 3
+  barrier_footprint_m2: 8
+  row_angle_degrees: 0
+  release_staff_count: 1
+
+control:
+  policy: S0
+  batch_size: 12
+  sub_batch_size: 4
+  downstream_threshold: 6
+  decision_interval_seconds: 5
+  maximum_hold_seconds: 120
+  prediction_horizon_seconds: 90
+  prediction_error_sd: 0.12
+  gate_delay_seconds: 0.75

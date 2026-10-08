@@ -1,0 +1,8 @@
+Criterion,Scenarios triggering,Scenarios tested
+conflict proxy,34,41
+movement null,1,41
+release surge proxy,34,41
+space,1,41
+staffing,1,41
+throughput,1,41
+waiting,1,41

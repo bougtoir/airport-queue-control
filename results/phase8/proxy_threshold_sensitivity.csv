@@ -1,0 +1,6 @@
+ratio_threshold,release_surge_scenarios,conflict_proxy_scenarios
+1.25,39,38
+1.5,37,36
+2.0,34,34
+3.0,28,27
+4.0,2,13

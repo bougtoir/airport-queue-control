@@ -1,0 +1,9 @@
+Parameter/group,Base value,Range,Evidence/type
+Demand and screening,420 passengers/h; 3 lanes; 20 s mean service,120–240 passengers/h/lane,Synthetic demand; guidance-informed engineering range
+Walking speed,1.30 m/s,1.00–1.60 m/s,Peer-reviewed airport observations
+Stop/start timing,0.39 s startup; 0.48 s reaction; 0.58 s slowdown,0.20–0.80; 0.20–1.00; 0.20–1.20 s,Peer-reviewed controlled motion capture
+Passenger heterogeneity,0.65 luggage prevalence; 0.04 reduced mobility,0–1.00; 0–0.20 proportions,Explicit assumptions; stress tested
+Luggage space,0.12 m²/bag,0.08–0.20 m²/bag,Literature-informed engineering assumption
+S3 release rule,batch 12; threshold 6; maximum hold 120 s,Prespecified Phase 7 control grid,Explicit controller design factors
+Configured routes,S0 55 m/10 turns; stationary 22 m/2 turns,"Matched short, mid, and long routes",Structural assumptions; matched-route sensitivity
+Spatial constraints,1.20 m route; 1.60 m turning; 1.40 passengers/m²,minimum 0.915 m route and 1.525 m turning,Official accessibility minima plus engineering assumptions

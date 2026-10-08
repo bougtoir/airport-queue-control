@@ -1,0 +1,113 @@
+plan_version: "1.1"
+locked_utc: "2026-09-24T08:35:00Z"
+study_type: finite-horizon stochastic simulation with drain period
+base_config: configs/default.yaml
+
+primary_question: >-
+  At practically relevant checkpoint loads, can stationary threshold release (S3) reduce modeled
+  passenger movement burden without decreasing completed-within-horizon throughput by more than
+  the prespecified acceptability margin relative to conventional release (S0)?
+
+primary_comparison:
+  intervention: S3
+  baseline: S0
+  intervention_layout: B1
+  baseline_layout: B0
+  load_regimes: [0.85, 0.95]
+  movement_endpoints:
+    - mean_movement_starts
+    - mean_movement_stops
+    - mean_turning_angle_degrees
+    - mean_movement_distance_m
+  spatial_endpoints:
+    - capacity_efficiency_passengers_per_m2
+    - required_waiting_area_m2_at_density_limit
+  operational_endpoint: throughput_per_hour
+  throughput_relative_noninferiority_margin: 0.02
+  throughput_margin_sensitivity: [0.00, 0.01, 0.02, 0.05]
+  comparability_constraint: >-
+    Hold gross dimensions, configured waiting and screening area, barrier footprint, arrivals,
+    screening resources, service draws, and passenger population identical. The intended contrast
+    is B1 stationary threshold release against B0 conventional release.
+  throughput_margin_rationale: >-
+    A 2% hourly margin is prespecified as a small operational tolerance: under the base service
+    assumptions it is approximately nine passengers per hour, or fewer than one passenger every
+    six minutes. Zero, 1%, and 5% margins are reported as sensitivity decisions and do not replace
+    the primary 2% rule.
+  interpretation: >-
+    Acceptable throughput requires the lower 95% confidence bound for the paired throughput
+    difference, divided by the baseline mean, to be no less than -0.02.
+
+secondary_policies: [S1, S2, S4, S5]
+load_regimes: [0.50, 0.70, 0.85, 0.95, 1.00, 1.15]
+policies: [S0, S1, S2, S3, S4, S5]
+arrival_mode: poisson
+service_distribution: gamma
+horizon_seconds: 3600
+drain_limit_seconds: 3600
+time_step_seconds: 1
+
+replications:
+  count: 30
+  routine_cap: 200
+  seed_base: 310000
+  common_random_numbers: true
+  maximum_workers: 2
+
+monte_carlo_precision_targets:
+  throughput_difference_half_width_relative_to_baseline: 0.01
+  movement_starts_difference_half_width: 0.10
+  movement_stops_difference_half_width: 0.10
+  turning_angle_difference_half_width_degrees: 15.0
+  movement_distance_difference_half_width_m: 0.25
+  capacity_efficiency_difference_half_width_per_m2: 0.02
+  required_area_difference_half_width_m2: 2.0
+  mean_wait_difference_half_width_seconds: 5.0
+  confidence_level: 0.95
+  escalation_rule: >-
+    If any primary endpoint target is not met at 30 paired replications, increase to the estimated
+    requirement up to the routine cap of 200. Report every target still unmet at the cap without
+    relaxing, suppressing, or retrospectively redefining it.
+
+primary_analysis:
+  pairing_keys: [load_regime, replication, seed]
+  confidence_interval: paired Student t
+  estimand: mean paired policy-minus-baseline difference
+  missing_rule: retain unfinished passengers and report the unfinished count
+  multiplicity: >-
+    The two load regimes, four movement endpoints, two spatial endpoints, and throughput endpoint
+    are jointly primary and must all be shown; no endpoint may be suppressed. Confidence intervals
+    are descriptive and the throughput margin determines operational acceptability.
+
+secondary_endpoints:
+  - mean_movement_time_seconds
+  - mean_wait_seconds
+  - wait_sd_seconds
+  - p95_wait_seconds
+  - utilization
+  - starvation_fraction_with_upstream_demand
+  - max_downstream_queue
+  - required_waiting_area_m2_at_density_limit
+  - density_limit_exceedance_fraction
+  - wait_gini
+  - luggage_wait_gap_seconds
+  - reduced_mobility_wait_gap_seconds
+  - peak_simultaneous_movers
+  - maximum_release_size
+  - maximum_release_surge_index
+  - peak_moving_footprint_density_per_m2
+  - mean_movement_conflict_proxy
+  - intervention_count
+  - service_order_overtaking_events
+  - group_wait_gap_seconds
+
+falsification_rules:
+  - A policy fails throughput acceptability when its paired lower confidence bound crosses the margin.
+  - A policy fails operational reliability when starvation or unfinished demand materially increases.
+  - Movement improvement is not sufficient if it is obtained only by excessive waiting or floor area.
+  - Null, adverse, overload, density, accessibility, and subgroup findings must be retained.
+
+scope_limits:
+  - Generic parameterized terminal geometry, not a named airport.
+  - Simulated passengers and operations, not empirical checkpoint performance.
+  - Movement endpoints are not physiological energy expenditure or safety outcomes.

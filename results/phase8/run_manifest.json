@@ -1,0 +1,8 @@
+{
+  "model_sha256": "bae94d0cd2cc4e497e540c87194f9ca71e14f6d081005a10db8fa1faa84cab67",
+  "replication_rows": 2460,
+  "replications_per_policy_scenario": 30,
+  "scenario_count": 41,
+  "specification_sha256": "7b253810257e95a71081041cd993a47d8db338d4877ba0a48c1b91c4fc479b54",
+  "status": "complete"
+}

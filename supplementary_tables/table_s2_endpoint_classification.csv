@@ -1,0 +1,7 @@
+Endpoint,Mechanism,Classification
+Distance,Route definition,Structural
+Turning,Route definition,Structural
+Movement starts/stops,Progression/control rule plus congestion,Model-dependent dynamic
+Throughput,Arrival/service/route/control interaction,Dynamic
+Waiting,Arrival/service/route/control interaction,Dynamic
+Required waiting area,Demand plus spatial assumptions,Conditional engineering outcome
