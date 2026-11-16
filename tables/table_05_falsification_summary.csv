@@ -1,0 +1,10 @@
+Criterion,Criterion type,Scenarios triggering,Flags by proxy ratio threshold
+Throughput,Operational,1/41,—
+Waiting,Operational,1/41,—
+Required area,Operational,1/41,—
+Unfinished demand,Operational,0/41,—
+Movement null,Mechanism,1/41,—
+Staffing,Feasibility,1/41,—
+Release surge,Engineering proxy (unvalidated),34/41,1.25: 39; 1.50: 37; 2.00: 34; 3.00: 28; 4.00: 2
+Conflict,Engineering proxy (unvalidated),34/41,1.25: 38; 1.50: 36; 2.00: 34; 3.00: 27; 4.00: 13
+Any criterion,Combined,36/41,—

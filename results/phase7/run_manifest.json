@@ -1,0 +1,12 @@
+{
+  "design_count": 289,
+  "load_regimes": [
+    0.85,
+    0.95
+  ],
+  "model_sha256": "13df3b98458c5d60f74d2972f8daceba53faa8794ca8f7aaa90158c976bfdd6f",
+  "replication_rows": 5780,
+  "replications_per_design_load": 10,
+  "specification_sha256": "89f351f21bc77e7cc09c5e5b444b54e829bbed52eebf8f0ffce8c63d311cb2b6",
+  "status": "complete"
+}

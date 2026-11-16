@@ -1,0 +1,11 @@
+Load,Endpoint,S0 mean,S3−S0 difference,95% paired CI,Interpretation/criterion
+0.85,Movement distance (m/passenger),55.0,−33.0,−33.0 to −33.0,Structural route contrast
+0.85,Modeled movement starts (per passenger),2.5,−1.5,−1.9 to −1.0,Model-dependent; fewer starts
+0.85,Cumulative turning (degrees/passenger),1800,−1440,−1440 to −1440,Structural route contrast
+0.85,Required waiting area (m²),8.5,−0.7,−1.2 to −0.2,Conditional spatial outcome; lower area
+0.85,Throughput (passengers/h),384.4,4.0,3.4 to 4.5,Safeguard met: lower CI > −2% of S0
+0.95,Movement distance (m/passenger),55.0,−33.0,−33.0 to −33.0,Structural route contrast
+0.95,Modeled movement starts (per passenger),7.3,−6.3,−7.4 to −5.3,Model-dependent; fewer starts
+0.95,Cumulative turning (degrees/passenger),1800,−1440,−1440 to −1440,Structural route contrast
+0.95,Required waiting area (m²),18.7,−5.2,−6.6 to −3.9,Conditional spatial outcome; lower area
+0.95,Throughput (passengers/h),418.2,8.5,7.0 to 10.0,Safeguard met: lower CI > −2% of S0

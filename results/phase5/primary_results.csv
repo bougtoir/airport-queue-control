@@ -1,0 +1,15 @@
+load_regime,policy,baseline,endpoint,replications,baseline_mean,mean_paired_difference,standard_deviation_paired_difference,ci95_lower,ci95_upper,ci95_half_width,relative_lower_bound,throughput_acceptable,throughput_acceptable_margin_0pct,throughput_acceptable_margin_1pct,throughput_acceptable_margin_2pct,throughput_acceptable_margin_5pct
+0.85,S3,S0,capacity_efficiency_passengers_per_m2,200,1.4,0.0,0.0,0.0,0.0,0.0,0.0,not_applicable,not_applicable,not_applicable,not_applicable,not_applicable
+0.85,S3,S0,mean_movement_distance_m,200,55.0,-33.0,0.0,-33.0,-33.0,0.0,-0.6,not_applicable,not_applicable,not_applicable,not_applicable,not_applicable
+0.85,S3,S0,mean_movement_starts,200,2.474739918269514,-1.4747399182695136,3.1467916069556874,-1.913523456189528,-1.035956380349499,0.43878353792001445,-0.773222043279432,not_applicable,not_applicable,not_applicable,not_applicable,not_applicable
+0.85,S3,S0,mean_movement_stops,200,1.4747399182695136,-1.4747399182695136,3.1467916069556874,-1.913523456189528,-1.035956380349499,0.43878353792001445,-1.2975328276425113,not_applicable,not_applicable,not_applicable,not_applicable,not_applicable
+0.85,S3,S0,mean_turning_angle_degrees,200,1800.0,-1440.0,0.0,-1440.0,-1440.0,0.0,-0.8,not_applicable,not_applicable,not_applicable,not_applicable,not_applicable
+0.85,S3,S0,required_waiting_area_m2_at_density_limit,200,8.507392857142857,-0.6888428571428571,3.580083730269723,-1.1880439487389276,-0.18964176554678658,0.4992010915960705,-0.13964841740456818,not_applicable,not_applicable,not_applicable,not_applicable,not_applicable
+0.85,S3,S0,throughput_per_hour,200,384.395,3.95,3.8236897121857805,3.416830883839692,4.483169116160308,0.5331691161603078,0.008888853611102362,yes,yes,yes,yes,yes
+0.95,S3,S0,capacity_efficiency_passengers_per_m2,200,1.4,0.0,0.0,0.0,0.0,0.0,0.0,not_applicable,not_applicable,not_applicable,not_applicable,not_applicable
+0.95,S3,S0,mean_movement_distance_m,200,55.0,-33.0,0.0,-33.0,-33.0,0.0,-0.6,not_applicable,not_applicable,not_applicable,not_applicable,not_applicable
+0.95,S3,S0,mean_movement_starts,200,7.3405741140837675,-6.3405741140837675,7.797646960990656,-7.427865408947994,-5.253282819219541,1.0872912948642266,-1.0118916168555192,not_applicable,not_applicable,not_applicable,not_applicable,not_applicable
+0.95,S3,S0,mean_movement_stops,200,6.3405741140837675,-6.3405741140837675,7.797646960990656,-7.427865408947994,-5.253282819219541,1.0872912948642266,-1.1714815212788257,not_applicable,not_applicable,not_applicable,not_applicable,not_applicable
+0.95,S3,S0,mean_turning_angle_degrees,200,1800.0,-1440.0,0.0,-1440.0,-1440.0,0.0,-0.8,not_applicable,not_applicable,not_applicable,not_applicable,not_applicable
+0.95,S3,S0,required_waiting_area_m2_at_density_limit,200,18.67142857142857,-5.242857142857144,9.565860741403554,-6.576705310649823,-3.9090089750644648,1.3338481677926792,-0.35223364326357126,not_applicable,not_applicable,not_applicable,not_applicable,not_applicable
+0.95,S3,S0,throughput_per_hour,200,418.175,8.48,10.630835967450263,6.997653407192765,9.962346592807235,1.4823465928072348,0.016733791850762875,yes,yes,yes,yes,yes

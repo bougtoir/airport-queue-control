@@ -1,0 +1,14 @@
+category,throughput_failure,waiting_failure,space_failure,unfinished_failure,movement_null,staffing_failure,release_surge_failure,conflict_proxy_failure
+arrival_process,0.0,0.0,0.0,0.0,0.0,0.0,0.6666666666666666,1.0
+combined,0.2,0.2,0.2,0.0,0.0,0.0,0.6,0.4
+compliance,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0
+control,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0
+controller_failure,0.0,0.0,0.0,0.0,0.0,0.0,0.8,0.8
+downstream_capacity,0.0,0.0,0.0,0.0,0.0,0.0,0.6666666666666666,0.6666666666666666
+footprint,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0
+geometry,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0
+guidance_delay,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0
+lane_shock,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0
+load,0.0,0.0,0.0,0.0,0.14285714285714285,0.0,0.7142857142857143,0.7142857142857143
+service_variability,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0
+staffing,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0

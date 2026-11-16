@@ -1,0 +1,10 @@
+Geometry,Regime,S3 lower bound (% of S0),S3 safeguard,S5 lower bound (% of S0),S5 safeguard,S3−S0 modeled starts
+compact,disrupted,4.8,yes,0.4,yes,−57.7
+compact,moderate,0.4,yes,−3.5,no,0.0
+compact,peak,0.3,yes,−2.8,no,−7.9
+extended,disrupted,18.9,yes,14.2,yes,−66.1
+extended,moderate,1.0,yes,−2.3,no,−0.1
+extended,peak,2.9,yes,−0.4,yes,−8.0
+standard,disrupted,11.2,yes,6.5,yes,−62.4
+standard,moderate,0.6,yes,−2.9,no,−0.1
+standard,peak,2.0,yes,−1.4,yes,−12.8

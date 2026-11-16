@@ -1,0 +1,97 @@
+FINAL_QC_REPORT — SMPT submission package, airport threshold-release
+Date: 2026-10-16 UTC. Single-VM QC; no child sessions. Canonical commit
+2d0d17b95ff67b3721a4ea59d74486f60f9882f9 (wip master, post-PR#674 merge).
+QC branch: devin/1792130720-airport-smpt-final-qc.
+
+GATE 0 — BASELINE INVENTORY: PASS
+- ZIP inspected: contained manuscript docx, cover letter docx, highlights, checklist,
+  8 figure PNGs + graphical_abstract.png, SHA256SUMS.txt. Defect found: SHA256SUMS.txt
+  carried two self-hash entries for the ZIP, one stale (see Gate 6).
+- Canonical source of truth: manuscript/manuscript.md + builders
+  (scripts/build_phase11_manuscript.py → manuscript docx → manuscript/qc/build_final_manuscript.py
+  → manuscript_author_FINAL.docx). No frozen-value or source drift detected.
+- Checkpoint: branch devin/1792130720-airport-smpt-final-qc at master tip before edits.
+
+GATE 1 — REPOSITORY / DATA AVAILABILITY: PASS
+- URL cited in manuscript https://github.com/bougtoir/airport-queue-control resolves
+  (HTTP 200); cloned: commit b25929e, synced 2026-10-08, README documents
+  `python3 -m venv .venv && .venv/bin/pip install -e '.[dev]' && make reproduce`.
+- ANALYSIS_PLAN_LOCKED.sha256 in public repo matches frozen plan hash 36114b51….
+- No manuscript/submission/journal artifacts in public repo (grep for SMPT/TR-C clean);
+  sync-to-repos EXCLUDE_MAP extended this QC to cover all new gate/audit/QC files so
+  future pointer-branch syncs cannot leak SMPT or TRC material.
+- Availability statement in manuscript ("code… available at") matches verifiable reality.
+  Note: public sync predates the retarget's prose-only edits; the scientific pipeline it
+  publishes is unchanged, so the statement stands.
+
+GATE 2 — FIGURE/TABLE NUMBERING & VISUAL QC: PASS
+- Automated numbering audit re-run (run_submission_audits.py): Figures 1–8 and Tables 1–6
+  cited in first-appearance order, no gaps/duplicates/orphans/stale S-references; all
+  cross-reference checks PASS (102 QC checks in final-docx builder, previously verified).
+- Rendered-page inspection done in the prior gate run (17-page PDF, all pages clean);
+  the final docx is byte-identical to that inspected artifact — no re-inspection needed.
+
+GATE 3 — NUMERICAL/CLAIM TRACEABILITY: PASS
+- manuscript_values.csv: 83 machine-checked bindings, all PASS; regenerated identical
+  (modulo ~1e-12 float drift on CI endpoints).
+- Verified: 200 paired reps; loads 0.85/0.95; 2% safeguard; throughput diffs 3.95
+  (CI 3.42–4.48)/8.48 (7.00–9.96); starts −1.475/−6.341; precision 0.4388/1.0873 vs
+  target 0.100 (required 3,805/23,359, disclosed unmet); 289/239/8 designs; 41 scenarios,
+  36 flagged (surge 34, conflict 34, unfinished 0, movement-null 1, staffing 1);
+  matched-route diffs −0.58…1.2; S3 9/9 vs S5 5/9; adverse s3_bad_control retained.
+- Structural/model-dependent/dynamic/proxy endpoint classes preserved; proxies never
+  called safety outcomes; no universal-gain wording.
+
+GATE 4 — SMPT FIT / PRIOR-WORK POSITIONING: PASS
+- Contribution stated as simulation model specification + V&V boundaries + reproducible
+  policy comparison + failure-region mapping; no forced theory/emerging-tech narrative.
+- Yuan et al. 2025 (SMPT, lane-opening scheduling) differentiated explicitly in Intro
+  and cover letter (different decision layer). S0 progression-rule limitation and unmet
+  precision target retained verbatim.
+
+GATE 5 — COVER LETTER / HIGHLIGHTS / DECLARATIONS: PASS
+- Cover letter: singular first person "I" throughout; novelty, SMPT relevance, Yuan
+  differentiation, limitations without exaggeration.
+- Highlights: 5 bullets, 51–72 chars (≤85 limit), aligned to actual results.
+- Declarations present and internally consistent: funding (none), competing interests
+  (none), ethics/consent N/A (simulation-only), gen-AI writing declaration (Devin),
+  CRediT single-author roles, data/code availability → public repo. No invented statements.
+
+GATE 6 — MANIFEST/ZIP INTEGRITY: PASS (defect corrected)
+- Fixed: removed stale + self-referential ZIP hash entries from SHA256SUMS.txt.
+- SHA256SUMS.txt now covers all 14 ZIP members (all verify OK); ZIP integrity
+  `unzip -t` clean. Final ZIP SHA-256 recorded externally in
+  submission/smpt/SMPT_submission_package.zip.sha256 and below — not inside the ZIP.
+- No stale drafts/caches/credentials in the package.
+
+GATE 6A — MANDATORY CLEAN `make all`: PASS
+- Fresh worktree at canonical commit + fresh venv; `make all` 06:06:24Z→06:15:01Z,
+  exit 0; ruff clean; 52 tests passed. Locked plan hash reproduced.
+- Cell-by-cell comparison vs locked outputs: all point values/counts/flags identical;
+  numeric drift only in CI/aggregate endpoints ≤7e-10 relative (float summation order);
+  final manuscript docx byte-identical. Full detail: MAKE_ALL_REPRODUCIBILITY_REPORT.txt
+  (inside the ZIP).
+
+GATE 7 — FINAL DELIVERY: PASS
+- ZIP contents: SMPT_manuscript_FINAL.docx, SMPT_cover_letter_FINAL.docx,
+  SMPT_highlights.txt, SMPT_SUBMISSION_CHECKLIST.md, MAKE_ALL_REPRODUCIBILITY_REPORT.txt,
+  SHA256SUMS.txt, figures/figure_01–08.png, figures/graphical_abstract.png.
+
+CHANGES MADE THIS QC
+1. sync-to-repos.yml EXCLUDE_MAP for pointer branch devin/1790232648-airport-batch-queue
+   extended with all new SMPT/gate/QC filenames (leak prevention).
+2. SHA256SUMS.txt: removed invalid self-hash entries; added MAKE_ALL report; re-verified.
+3. Added MAKE_ALL_REPRODUCIBILITY_REPORT.txt; rebuilt ZIP; wrote external .sha256.
+4. Regenerated submission/PACKAGE_MANIFEST.csv (housekeeping, private only).
+No scientific, numerical, or manuscript-content changes were made.
+
+FINAL ZIP SHA-256: 9a5a83472e15e406a24aa4b60783c08bfe9bc4706a76f58bd20d1305daabd62c
+(file: submission/smpt/SMPT_submission_package.zip; mirrors
+submission/smpt/SMPT_submission_package.zip.sha256)
+
+REMAINING AUTHOR-ONLY TASKS
+- Editorial Manager upload: manuscript docx, cover letter, highlights text, figure files;
+  article type selection; link data repository (Option C).
+- Any author statements the portal asks him to type by hand.
+
+VERDICT: READY — all gates PASS.

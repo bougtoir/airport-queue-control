@@ -1,0 +1,55 @@
+base_config: configs/default.yaml
+replications: 20
+seed_base: 610000
+maximum_workers: 2
+policies: [S0, S3, S5]
+
+geometries:
+  - geometry_id: compact
+    width_m: 10
+    length_m: 16
+    waiting_area_m2: 100
+    screening_area_m2: 35
+    downstream_staging_area_m2: 35
+    barrier_footprint_m2: 6
+    corridor_width_m: 1.2
+    rows: 4
+    serpentine_distance_m: 42
+    stationary_distance_m: 18
+    virtual_distance_m: 15
+    downstream_capacity: 24
+  - geometry_id: standard
+    width_m: 12
+    length_m: 20
+    waiting_area_m2: 150
+    screening_area_m2: 45
+    downstream_staging_area_m2: 45
+    barrier_footprint_m2: 8
+    corridor_width_m: 1.2
+    rows: 6
+    serpentine_distance_m: 55
+    stationary_distance_m: 22
+    virtual_distance_m: 18
+    downstream_capacity: 36
+  - geometry_id: extended
+    width_m: 20
+    length_m: 30
+    waiting_area_m2: 420
+    screening_area_m2: 80
+    downstream_staging_area_m2: 80
+    barrier_footprint_m2: 12
+    corridor_width_m: 1.8
+    rows: 10
+    serpentine_distance_m: 80
+    stationary_distance_m: 32
+    virtual_distance_m: 24
+    downstream_capacity: 60
+
+regimes:
+  - {regime_id: moderate, load_regime: 0.70, arrival_mode: poisson, service_cv: 0.40}
+  - {regime_id: peak, load_regime: 0.95, arrival_mode: poisson, service_cv: 0.70}
+  - regime_id: disrupted
+    load_regime: 0.95
+    arrival_mode: burst
+    service_cv: 1.20
+    lane_schedule: [[1800, 2]]

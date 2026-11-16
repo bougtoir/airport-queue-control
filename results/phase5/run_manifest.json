@@ -1,0 +1,39 @@
+{
+  "load_regimes": [
+    0.5,
+    0.7,
+    0.85,
+    0.95,
+    1.0,
+    1.15
+  ],
+  "model_files": {
+    "configs/default.yaml": "afb2ea76b63fe44cbe10951772d2d7558bdec9e17444785ec4c6d682181dde96",
+    "scripts/run_phase5_design.py": "e7b6059e6de84fd827db58497f1e9ce417f8656bfd5418f4b3f595e8bec55d17",
+    "src/airport_batch_queue/__init__.py": "0d21bbae9fad96ab7d20df5c0d5ede3929e1662bfaed011a588805ba8ca0c4ff",
+    "src/airport_batch_queue/arrivals.py": "573ede8dc2d4a04ecb284f478229b391de64505ced97d803ebd4e3aae1b60f99",
+    "src/airport_batch_queue/cli.py": "81bca4a51b804b8c09253f636932e12779f53c04f7d3b02f553bcde229a33345",
+    "src/airport_batch_queue/config.py": "b7ed71422a667652a2954eb4fe7ec5f31e04c837ee66b1a119d1b2620052256e",
+    "src/airport_batch_queue/control.py": "c779c4dda36f444aab2822fec80da6e7851bef8350155ae642f9a6a88131acdf",
+    "src/airport_batch_queue/entities.py": "483ce7513b8af60903024823d0c80325fa45c9b12a0973996dc3e22874022fd9",
+    "src/airport_batch_queue/geometry.py": "8528b8381bb713768003f007bf539e102456fbf5a8ba97b91b70f29ace2230c0",
+    "src/airport_batch_queue/metrics.py": "9e8e2b9ef8e56b8bb3351cc0c0a5b93986bb0546cbfebd1f281f5fd8a9b7b7cf",
+    "src/airport_batch_queue/service.py": "7630fed8521b53bdd011a0b63a912333f650375ace5b91a438815c9089dd0b0c",
+    "src/airport_batch_queue/simulator.py": "f8529de6a12282a78bd1047b22628728817b1dbf26b0dd356d4e120eb665c730"
+  },
+  "model_sha256": "d37dcfc9342d948ac9343e35a1c2aaa0c1c07160d1ee10cdf72244a75d8dfbdd",
+  "nominal_capacity_per_hour": 471.6157205240175,
+  "plan_sha256": "36114b51e3f10e7708fac6867faca8fd246cbff4e0eec53dbda9656d7070619c",
+  "policies": [
+    "S0",
+    "S1",
+    "S2",
+    "S3",
+    "S4",
+    "S5"
+  ],
+  "replication_rows": 7200,
+  "replications_per_cell": 200,
+  "seed_rows": 1200,
+  "status": "complete"
+}

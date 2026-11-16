@@ -1,0 +1,52 @@
+base_config: configs/default.yaml
+horizon_seconds: 3600
+drain_limit_seconds: 3600
+seeds: [330001, 330002, 330003]
+row_angles_degrees: [0, 15, 30, 45]
+architectures:
+  - layout: B0
+    label: conventional_belt_switchback
+    policy: S0
+    barrier_footprint_m2: 8.0
+    gate_delay_seconds: 0.0
+    release_staff_count: 0
+  - layout: B1
+    label: parallel_rows_manual_gates
+    policy: S3
+    barrier_footprint_m2: 4.0
+    gate_delay_seconds: 0.75
+    release_staff_count: 2
+  - layout: B2
+    label: parallel_rows_automatic_gates
+    policy: S3
+    barrier_footprint_m2: 5.0
+    gate_delay_seconds: 0.30
+    release_staff_count: 0
+  - layout: B3
+    label: visual_floor_guidance
+    policy: S3
+    barrier_footprint_m2: 1.0
+    gate_delay_seconds: 0.0
+    release_staff_count: 1
+  - layout: B4
+    label: hybrid_gates_visual_guidance
+    policy: S3
+    barrier_footprint_m2: 3.0
+    gate_delay_seconds: 0.40
+    release_staff_count: 1
+footprint_cases:
+  - name: low
+    body_footprint_m2: 0.16
+    luggage_footprint_m2_per_bag: 0.08
+    static_clearance_m2: 0.25
+    moving_clearance_m2: 0.40
+  - name: base
+    body_footprint_m2: 0.20
+    luggage_footprint_m2_per_bag: 0.12
+    static_clearance_m2: 0.35
+    moving_clearance_m2: 0.55
+  - name: high
+    body_footprint_m2: 0.25
+    luggage_footprint_m2_per_bag: 0.20
+    static_clearance_m2: 0.55
+    moving_clearance_m2: 0.85

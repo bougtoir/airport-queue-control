@@ -1,0 +1,90 @@
+base_config: configs/default.yaml
+replications: 30
+seed_base: 510000
+maximum_workers: 2
+throughput_relative_margin: 0.02
+movement_start_minimum_benefit: 0.10
+maximum_mean_wait_increase_seconds: 30.0
+maximum_required_area_ratio: 1.25
+maximum_unfinished_increase: 5.0
+maximum_release_surge_ratio: 2.0
+maximum_conflict_proxy_ratio: 2.0
+
+scenarios:
+  - {scenario_id: load_050, category: load, load_regime: 0.50}
+  - {scenario_id: load_070, category: load, load_regime: 0.70}
+  - {scenario_id: load_085, category: load, load_regime: 0.85}
+  - {scenario_id: load_095, category: load, load_regime: 0.95}
+  - {scenario_id: load_100, category: load, load_regime: 1.00}
+  - {scenario_id: load_115, category: load, load_regime: 1.15}
+  - {scenario_id: load_130, category: load, load_regime: 1.30}
+  - {scenario_id: cv_020, category: service_variability, load_regime: 0.95, service_cv: 0.20}
+  - {scenario_id: cv_100, category: service_variability, load_regime: 0.95, service_cv: 1.00}
+  - {scenario_id: cv_150, category: service_variability, load_regime: 0.95, service_cv: 1.50}
+  - {scenario_id: arrivals_burst, category: arrival_process, load_regime: 0.95, arrival_mode: burst}
+  - {scenario_id: arrivals_flight_bank, category: arrival_process, load_regime: 0.95, arrival_mode: flight_bank}
+  - {scenario_id: arrivals_batched, category: arrival_process, load_regime: 0.95, arrival_mode: batched}
+  - {scenario_id: compliance_100, category: compliance, load_regime: 0.95, release_compliance: 1.00}
+  - {scenario_id: compliance_080, category: compliance, load_regime: 0.95, release_compliance: 0.80}
+  - {scenario_id: compliance_050, category: compliance, load_regime: 0.95, release_compliance: 0.50}
+  - {scenario_id: capacity_006, category: downstream_capacity, load_regime: 0.95, downstream_capacity: 6}
+  - {scenario_id: capacity_012, category: downstream_capacity, load_regime: 0.95, downstream_capacity: 12}
+  - {scenario_id: capacity_024, category: downstream_capacity, load_regime: 0.95, downstream_capacity: 24}
+  - scenario_id: lanes_two
+    category: lane_shock
+    load_regime: 0.95
+    lane_schedule: [[1200, 2]]
+  - scenario_id: lanes_one
+    category: lane_shock
+    load_regime: 0.95
+    lane_schedule: [[1200, 1]]
+  - scenario_id: lanes_close_reopen
+    category: lane_shock
+    load_regime: 0.95
+    lane_schedule: [[1200, 0], [1800, 3]]
+  - {scenario_id: hold_030, category: control, load_regime: 0.95, maximum_hold_seconds: 30}
+  - {scenario_id: hold_300, category: control, load_regime: 0.95, maximum_hold_seconds: 300}
+  - {scenario_id: angle_045, category: geometry, load_regime: 0.95, row_angle_degrees: 45}
+  - {scenario_id: footprint_high, category: footprint, load_regime: 0.95, footprint_case: high}
+  - {scenario_id: restricted_space, category: geometry, load_regime: 0.95, restricted_space: true}
+  - scenario_id: combined_burst_overload
+    category: combined
+    load_regime: 1.15
+    arrival_mode: burst
+    service_cv: 1.00
+    release_compliance: 0.80
+    downstream_capacity: 12
+  - scenario_id: combined_bank_extreme
+    category: combined
+    load_regime: 1.30
+    arrival_mode: flight_bank
+    service_cv: 1.50
+    release_compliance: 0.50
+    downstream_capacity: 6
+  - scenario_id: combined_lane_burst
+    category: combined
+    load_regime: 1.15
+    arrival_mode: burst
+    lane_schedule: [[900, 1], [2400, 3]]
+  - scenario_id: combined_low_long_hold
+    category: combined
+    load_regime: 0.50
+    arrival_mode: flight_bank
+    maximum_hold_seconds: 300
+  - {scenario_id: s3_decision_030, category: controller_failure, load_regime: 0.95, s3_decision_interval_seconds: 30}
+  - {scenario_id: s3_decision_060, category: controller_failure, load_regime: 0.95, s3_decision_interval_seconds: 60}
+  - {scenario_id: s3_threshold_zero_hold, category: controller_failure, load_regime: 0.95, s3_downstream_threshold: 0, maximum_hold_seconds: 300}
+  - {scenario_id: s3_batch_001, category: controller_failure, load_regime: 0.95, s3_batch_size: 1}
+  - {scenario_id: s3_batch_024, category: controller_failure, load_regime: 0.95, s3_batch_size: 24}
+  - {scenario_id: s3_gate_005, category: guidance_delay, load_regime: 0.95, s3_gate_delay_seconds: 5}
+  - {scenario_id: s3_gate_015, category: guidance_delay, load_regime: 0.95, s3_gate_delay_seconds: 15}
+  - scenario_id: s3_bad_control
+    category: combined
+    load_regime: 0.95
+    s3_decision_interval_seconds: 30
+    s3_downstream_threshold: 0
+    s3_batch_size: 24
+    s3_gate_delay_seconds: 5
+    maximum_hold_seconds: 300
+  - {scenario_id: s3_staff_zero, category: staffing, load_regime: 0.95, s3_release_staff_count: 0}
+  - {scenario_id: narrow_gate, category: geometry, load_regime: 0.95, gate_width_m: 0.915}

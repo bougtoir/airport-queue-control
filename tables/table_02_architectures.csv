@@ -1,0 +1,7 @@
+Policy,Waiting architecture,Control rule,Layouts
+S0,Conventional switchback,Continuous/standard release,B0
+S1,Stationary rows,Full-row batches,B1–B4
+S2,Stationary rows,Sub-batches,B1–B4
+S3,Stationary rows,Downstream threshold,B1–B4
+S4,Stationary rows,Noisy capacity prediction,B1–B4
+S5,Virtual queue benchmark,Called release,B3

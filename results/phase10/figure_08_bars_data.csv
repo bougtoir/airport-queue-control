@@ -1,0 +1,12 @@
+scenario_id,category,throughput_relative_lower_bound
+arrivals_batched,arrival_process,0.007313941409781
+arrivals_burst,arrival_process,0.2030258938492355
+arrivals_flight_bank,arrival_process,0.3031119315133915
+cv_020,service_variability,0.0079436620236886
+cv_100,service_variability,0.0110279160911436
+cv_150,service_variability,0.0350905113115142
+compliance_050,compliance,0.0172597152048797
+compliance_080,compliance,0.0141671727035073
+compliance_100,compliance,0.0122038382738564
+s3_gate_005,guidance_delay,0.0068230345183494
+s3_gate_015,guidance_delay,0.0084248439841356
